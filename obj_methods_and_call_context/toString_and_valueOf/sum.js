@@ -1,10 +1,13 @@
-sum.res = 0;
 function sum(a) {
-  sum.res +=a;
-  return sum;
-}
-sum.valueOf = function () {
-  return sum.res;
+  var currentSum = a;
+  function f(b) {
+    currentSum += b;
+    return f;
+  }
+  f.valueOf = function() {
+    return currentSum;
+  };
+  return f;
 }
 
 /*
