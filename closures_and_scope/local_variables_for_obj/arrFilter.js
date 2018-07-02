@@ -1,18 +1,12 @@
 function inBetween(begin, end) {
   return function(elem) {
-    if (elem >= begin && elem <= end) {
-      return true;
-    }
-    return false;
+    return elem >= begin && elem <= end;
   }
 }
 
-function inArray(arr) {
+function inArray(array) {
   return function(elem) {
-    if (~arr.indexOf(elem)) {
-      return true;
-    }
-    return false;
+    return array.indexOf(elem) != -1;
   }
 }
 
