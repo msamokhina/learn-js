@@ -1,6 +1,7 @@
 function makeBuffer() {
   var buffer = '';
-  return function() {
+
+  function f() {
     if(arguments.length > 0) {
       buffer += arguments[0];
     }
@@ -8,6 +9,12 @@ function makeBuffer() {
       return buffer;
     }
   }
+
+  f.clear = function() {
+    buffer = '';
+  }
+
+  return f;
 }
 
 var buffer = makeBuffer();
@@ -26,3 +33,6 @@ buffer2(1);
 buffer2(0);
 
 console.log( buffer2() ); // '010'
+
+buffer.clear();
+console.log( buffer() );
